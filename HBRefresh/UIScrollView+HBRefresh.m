@@ -185,7 +185,7 @@
     [path addLineToPoint:CGPointMake(x + diam, y)];// 右上
     
     CGFloat diam2 = diam * scale;// 在原来的基础上再缩小一次
-    CGFloat x2 = (_width - diam2) / 2;
+    CGFloat x2 = x + (diam - diam2) / 2;
     [path addLineToPoint:CGPointMake(x2 + diam2, y + h)];// 右下
     [path addLineToPoint:CGPointMake(x2, y + h)];// 左下
     [path closePath];// 关闭路径
