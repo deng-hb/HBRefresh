@@ -11,8 +11,7 @@ HBRefresh
 ```
 
 
-
-
+![演示图](refresh.gif)
 
 
 

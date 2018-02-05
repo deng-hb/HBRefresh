@@ -6,14 +6,14 @@
 //  Copyright © 2018 denghb. All rights reserved.
 //
 
-#define HB_IMAGE_REFRESH  @"iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAj9JREFUSA3llstKHEEUhntEIbhz4SXgap7BJIKCDxCQEIIIPoCrLHJZSNwI6kqRQFbBVzBgggRxpXgh4DtkEQJmEiQQRAQv4/cXXc3x0N0zo7MyB/6uOnUuf927kuS+S6WZAdbr9X78xsAoGAS9QHIMfoADsF2pVH5RlkopIURKPA3GQUdppiS5xL4BVsuICwkh04jmQTdoRU5wngMq34EHYJFO7FMmuYSQTWJ7K4c7yBmxIpPUIHyqSqc+VtKR5ZF9x28dfANxrQaoPwbPQRVYiWRq0x4IcmOE6Zp9wmKn8QJ9BazRy6sQ5T7EaX1fgFegy5mDSuyQKn6E2iCe7CXOhyGq4KOOQKoZOAE9BW6hOdt5BGjY2o1WVhqRGecZ6qVk8s0IqWtXWl09XgPNip0ZH/M7NlgCHWor65oq29Cgvoi9luMjMtmC2DXUDWJFu7FpoXM6Z2HrlwXZEcbrKvrHrR/1tpSWsC0JGyWxhH+csw5128US/nTZh53eFtUS7rmMz9IbxDXfTbWEO6Syx6CKruuqJaGTo2ADfAUjPjgjZFvrDH1xDq8JeuTaCtWUYBkHrX8fmPXOGWFq+Eh5apx0Tj+QaAJ438xNNjBFwxKwZ9vOWPC/8bdQC4G64tRLb9NVZ39P6sBD8AToDq4CKyJ7w8zt2kafNNggnZQzyLXbBCX1ecg+e3thwnSkt3li/IVkAbIdTya9kFBGSFt5RJ0TsgXeQybSXCkljBEQ5z0T9Uo7SqGLfhOifzHm/y2vASx6nZD2y69wAAAAAElFTkSuQmCC"
+#define HB_IMAGE_REFRESH  @"iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEHElEQVR4Xu2aj1EVMRDGdytQKxA6sAOhArUCpQK1AqECsQKhAqUCoQKhArECtYJ1fkxu5ngml00uOZ7zbmfe8GZeSPJ9+yeb3ajsuOiO45eVgNUCdpyB1QV23ADWILiIC5jZnog8F5EDEeH7MxF5HLG+SxG5FZFrEblSVf5Wi5l9VtWjqQm6EWBmAHwtIm8C4BogkHEmIueqyne3AJ61VXUSY3MCgrY/BODuDTsGQsSJh4gBPHMuSoCZAfxdwrwdGF1DjkXkk6r+jo0eg1+MgKD1LzNM3YV8NIjYcLQZIzbBL0KAmb0UEfwtFtRKgZWMxwLeqyquITHw3QkwMwIc4D3yU0SI8l9FhM1fD2YcAiYnAwKhfJ56JsUSwgnDXv6RbjGgAPy5iJyWHmlmBiHEE06SaulCgJlxnn/L7OpKRI5VFa1XSyDiNGi5eJ7mBARz/ZHxeXyTTTeTAou7t2YPAtA8FhCTP/jvXK2nWAuWRwx55GW2KQEZLQD+oNTXvUCGcWZG1HfHhWYEOEz/laqinW5S4wYtCSADI9OLSXOf31ykBjxztCTgVyLw3ajqcIZ30X4t+GYEhGyPVDcmh72CHovNAd+SAHz7RQQ9d/bUiTDbGuaCb0mAJdB0C3wtwDchYCrrywWYWhNoBb4VAanof6GqXFqaSkvwrQhIJR5UZyDnv5ZsSczMuMxQ0NyUrtF/KVZXAnJMm9n3RKlr31OgzM3/0L/PsYCdJ2CNAT1T4KVcw+MCVHbeRja0M8fgoonQUpof1vFYAFddToKYPEl1aJYGUrtelgAmNjPq+LE6HN2Zu8bEQ0mmQp1VkJeAVDp8qaqHDwU+KCd1VXfdVbwEcOlJFUS6XYlzxIaeJCX6mLis00VAYJr+fKxddauq+7nN9vjdzFIleirUe574VELAVB+QdjVtrMXEzFjvY2JB9xFdQgDdX9rSqaaly+RaMBTaZamTya199uImILjBVCzgpCA9nvWuJ0dQAI/pp9rxRYooIiATdfn5Xs8+B6b0dwf44hJ9DQEwT0Cc6s/RFT4pBTg13sxIx6carkWmP6xVTECwArJDKkVTJEAS5tiiPU6wy5Xfq26nVQQ44sFYmRDAA4mLEosIGR5a9xRei/x+vI9qAgIJHI2YpbddTdbG5+7Nn6ryiIJUG4tiDh5RounhQaWHs2rwxadAbDdh8zl38AApHdOkHT/LAoYdh9Y5mo1Vj0uBecZjObwCLXo9Gpu4CQEjIkpdwgN2PAatc8I0e37TlIDgzxyTpKl8vLEhRwTAAU0wjb4QzU2Q+r05ARtuQQTHKmpdA1M/61lz6EbAmPEQI4jsRPvhPB+TchOySP6NVJo6Q9fnNrMSoVpz28b/W8QCthH4agGBgdUCttk8l9jbagFLsLzNa+y8BfwFdSmfUBzmFmIAAAAASUVORK5CYII="
 
 #define HB_IMAGE_OK  @"iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAaVBMVEVMaXF3d3f///+CgoJ3d3d3d3d3d3ekpKR3d3d3d3d6enp3d3f///93d3f///99fX3///////+zs7N3d3d3d3d3d3f////9/f3////+/v7////W1tZ3d3f///+RkZHc3Nzr6+vPz8+kpKRZlpGxAAAAHHRSTlMAMqz+RIIZCMfW/qtbm+poTM/86yRWPocimCrSqMGl/wAAATJJREFUeF6N0t12gyAQBGAJEEAi/iVN0gyoff+H7ILFUO1F90Y532GYi63+PUxqDWgt2R94M9jG3HZ4jfekYJViojGAPpcqRuj2fZQGoygUsKoMUxZgW/KIZl+lwZjzNeyxqoVe9QatjqwMRGKD9mCM+sGsvfRezwYyvslSCXnUyDKBATvq1z3H1lBH9cRncAKAgDXil57oikKd2QJip8SchMfwFtFLzeEhVjstNXmpsVogHmL/zkdvS60kBuJX6n9JXmql8SJ4crTZS5UId+Juoeur8+GtymD5iF8XYFf3b60sQp9+LjNHk9w9N23A5y6x6qeafLdM9dT/HD4debmKrQaf3CMfOz+HtMhXWjwhNRBmT702d1Qb24TFu0Ipv/d+GkIgCsPkff8oNdX227hLhm+Lfx2VWvyS+gAAAABJRU5ErkJggg=="
 
 #define HB_IMAGE(base64String) [UIImage imageWithData:[[NSData alloc]initWithBase64EncodedString:base64String options:(NSDataBase64DecodingIgnoreUnknownCharacters)]]
 
 #define HB_height     40
-#define HB_heightEnd       80
+#define HB_refreshHeight       80
 #define HB_contentOffset   @"contentOffset"
 
 #define HB_backgroundColor [UIColor colorWithWhite:0.9 alpha:1]
@@ -121,12 +121,11 @@
     _scrollView = object;
     
     CGFloat top = (-y > HB_height) ? y : -HB_height;
-    BOOL isPull = _height < -top;// 是否是下拉
     _height = -top;
     self.frame = CGRectMake(0, top, self.frame.size.width, _height);
     
     // 下拉达到刷新点
-    if (!_refreshing && _canRefresh && isPull && _height > HB_heightEnd) {
+    if (!_refreshing && _canRefresh && _height > HB_refreshHeight) {
         _canRefresh = NO;
         [self beginRefreshing];
     }
@@ -149,39 +148,55 @@
         _innerImageView.hidden = YES;
         return;
     }
-    // 上面大圆&下面小圆&一个倒梯形；TODO 在一个位置开始按比例缩放
-//    CGFloat coefficient = 0.618;
-    // 中间图标
-    [_innerImageView setFrame:CGRectMake(0, 10, _width, 20)];
+    // 上面大圆&下面小圆&一个倒梯形；在一个位置开始按比例缩放
+    
+    // 算个下拉比例
+    CGFloat h = _height - HB_height;
+    BOOL canStart = h > 0;
+    CGFloat scale = 1;
+    if (canStart) {
+        scale = (100 - h) / 100.0;// 简单得到一个比例
+//        NSLog(@"%.2f", scale);
+    }
     
     // 大圆
-    CGFloat x = (_width - 30)/2;
-    CGFloat w = 30;
-    UIBezierPath *bigCircle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, 5, w, w) cornerRadius:w / 2];
-    [HB_tinColor setFill];
-    [bigCircle fill];
+    CGFloat y = 5;
+    CGFloat diam = (HB_height - y * 2) * scale;// 直径
+    CGFloat r = diam / 2;// 半径
+    CGFloat x = (_width - diam)/2;
     
-    // 小于起始高度
-    if (_height < HB_height) {
+    UIBezierPath *circle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, y, diam, diam) cornerRadius:r];
+    [HB_tinColor setFill];
+    [circle fill];
+    
+    // 中间图标
+    [_innerImageView setFrame:CGRectMake(0, 10, _width, diam - 10 * scale)];
+    
+    // 未到可以下拉高度
+    if (!canStart) {
         return;
     }
-    CGFloat y = 20;
-    CGFloat h = _height - HB_height;
+    
+    y += r;
+    
     // 倒梯形
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(x, y)];// 左上
-    [path addLineToPoint:CGPointMake(x + w, y)];// 右上
-    [path addLineToPoint:CGPointMake(x + w - 5, y + h)];// 右下
-    [path addLineToPoint:CGPointMake(x + 5, y + h)];// 左下
+    [path addLineToPoint:CGPointMake(x + diam, y)];// 右上
+    
+    CGFloat diam2 = diam * scale;// 在原来的基础上再缩小一次
+    CGFloat x2 = (_width - diam2) / 2;
+    [path addLineToPoint:CGPointMake(x2 + diam2, y + h)];// 右下
+    [path addLineToPoint:CGPointMake(x2, y + h)];// 左下
     [path closePath];// 关闭路径
     [HB_tinColor setFill];// 设置填充颜色
     [path fill];
     
     // 小圆
-    CGFloat sw = w - 10;
-    UIBezierPath *smallCircle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x + 5, h + y - sw / 2, sw, sw) cornerRadius:sw / 2];
+    r = diam2 / 2;
+    UIBezierPath *circle2 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x2, h + y - r, diam2, diam2) cornerRadius:r];
     [HB_tinColor setFill];
-    [smallCircle fill];
+    [circle2 fill];
     
 }
 
