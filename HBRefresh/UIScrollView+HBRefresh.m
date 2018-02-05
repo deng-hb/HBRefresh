@@ -33,12 +33,12 @@
 
 - (void)beginRefreshing
 {
-    NSAssert(1 != 1, @"...");
+    NSAssert(1 != 1, @"Unimplemented");
 }
 
 - (void)endRefreshing
 {
-    NSAssert(1 != 1, @"...");
+    NSAssert(1 != 1, @"Unimplemented");
 }
 
 @end
@@ -108,21 +108,19 @@
     if (![keyPath isEqualToString:HB_contentOffset]) {
         return;
     }
+    _scrollView = object;
     
-    CGPoint point = [change[@"new"] CGPointValue];
-//    NSLog(@"%.f",point.y);
-    CGFloat y = point.y;
-    if (y >= 0) {
+    CGFloat h = _scrollView.contentOffset.y;
+    NSLog(@"%.2f", h);
+    if (h >= 0) {
         if (!_refreshing) {
             _canRefresh = YES;
         }
         return;
     }
-    _scrollView = object;
     
-    CGFloat top = (-y > HB_height) ? y : -HB_height;
-    _height = -top;
-    self.frame = CGRectMake(0, top, self.frame.size.width, _height);
+    _height = MAX(-h, HB_height);
+    self.frame = CGRectMake(0, -_height, _width, _height);
     
     // 下拉达到刷新点
     if (!_refreshing && _canRefresh && _height > HB_refreshHeight) {
@@ -202,7 +200,7 @@
 
 - (void)beginRefreshing
 {
-    NSLog(@"beginRefreshing(%lu)", ++_refreshIndex);
+    NSLog(@"header beginRefreshing (%lu)", ++_refreshIndex);
     _refreshing = YES;
     [_activityIndicatorView startAnimating];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -210,22 +208,103 @@
 
 - (void)endRefreshing
 {
-    NSLog(@"endRefreshing(%lu)", _refreshIndex);
+    NSLog(@"header endRefreshing (%lu)", _refreshIndex);
     _refreshing = NO;
     [_tipLabel setHidden:NO];
     [_activityIndicatorView stopAnimating];
+    
     [UIView animateWithDuration:0.5 animations:^{
-        [_scrollView setContentInset:(UIEdgeInsetsZero)];
+        [_scrollView setContentInset:UIEdgeInsetsZero];
     }];
 }
 
 
 @end
 
+@implementation HBRefreshFooter
+{
+    
+    UIActivityIndicatorView *_activityIndicatorView;// 菊花
+    UILabel *_label;// 结束提示
+    BOOL _refreshing;// 刷新中
+    
+    UIScrollView *_scrollView;// 当前视图
+    NSUInteger _refreshIndex;// 刷新次数
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [super willMoveToSuperview:newSuperview];
+    [newSuperview addObserver:self forKeyPath:HB_contentOffset options:NSKeyValueObservingOptionNew context:nil];
+    CGFloat width = newSuperview.frame.size.width;
+    
+    self.frame = CGRectMake(0, -HB_height, width, HB_height);
+    //    self.clipsToBounds = YES;
+    self.backgroundColor = HB_backgroundColor;
+    // 初始化
+    _activityIndicatorView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake((width - 30)/2, 5, 30, 30)];
+    [_activityIndicatorView setHidden:YES];
+    [_activityIndicatorView setColor:HB_tinColor];
+    [self addSubview:_activityIndicatorView];
+}
+
+- (void)removeFromSuperview
+{
+    [self.superview removeObserver:self forKeyPath:HB_contentOffset];
+    [super removeFromSuperview];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if (![keyPath isEqualToString:HB_contentOffset]) {
+        return;
+    }
+    
+    _scrollView = object;
+    if (_scrollView.frame.size.height > _scrollView.contentSize.height || self.hidden) {
+        return;
+    }
+    
+    CGFloat h = _scrollView.contentSize.height - _scrollView.frame.size.height - _scrollView.contentOffset.y;
+    
+//    NSLog(@"%.f", h);
+    if (h >= 0) {
+        return;
+    }
+    self.frame = CGRectMake(0, _scrollView.contentSize.height, _scrollView.frame.size.width, MAX(-h, HB_height));
+//    self.backgroundColor = [UIColor redColor];
+    if (!_refreshing) {
+        [self beginRefreshing];
+        
+        UIEdgeInsets inset = _scrollView.contentInset;
+        inset.bottom = HB_height;
+        [_scrollView setContentInset:inset];
+    }
+}
+
+- (void)beginRefreshing
+{
+    NSLog(@"footer beginRefreshing (%lu)", ++_refreshIndex);
+    _refreshing = YES;
+    [_activityIndicatorView startAnimating];
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    [self setAlpha:1];
+}
+
+- (void)endRefreshing
+{
+    _refreshing = NO;
+    NSLog(@"footer endRefreshing (%lu)", _refreshIndex);
+    [_activityIndicatorView stopAnimating];
+    [self setAlpha:0];
+}
+
+@end
 
 @implementation UIScrollView (HBRefresh)
 
-static const char HBRefreshOCHeaderKey = '\0';
+static const char HBRefreshHeaderKey = '\0';
+static const char HBRefreshFooterKey = '\0';
 
 - (void)setHb_header:(HBRefreshHeader *)hb_header
 {
@@ -233,14 +312,30 @@ static const char HBRefreshOCHeaderKey = '\0';
         [self.hb_header removeFromSuperview];
         [self insertSubview:hb_header atIndex:0];
         [self willChangeValueForKey:@"hb_header"];
-        objc_setAssociatedObject(self, &HBRefreshOCHeaderKey,hb_header, OBJC_ASSOCIATION_ASSIGN);
+        objc_setAssociatedObject(self, &HBRefreshHeaderKey, hb_header, OBJC_ASSOCIATION_ASSIGN);
         [self didChangeValueForKey:@"hb_header"];
     }
 }
 
 - (HBRefreshHeader *)hb_header
 {
-    return objc_getAssociatedObject(self, &HBRefreshOCHeaderKey);
+    return objc_getAssociatedObject(self, &HBRefreshHeaderKey);
+}
+
+- (void)setHb_footer:(HBRefreshFooter *)hb_footer
+{
+    if (hb_footer != self.hb_footer) {
+        [self.hb_footer removeFromSuperview];
+        [self insertSubview:hb_footer atIndex:0];
+        [self willChangeValueForKey:@"hb_footer"];
+        objc_setAssociatedObject(self, &HBRefreshFooterKey, hb_footer, OBJC_ASSOCIATION_ASSIGN);
+        [self didChangeValueForKey:@"hb_footer"];
+    }
+}
+
+- (HBRefreshFooter *)hb_footer
+{
+    return objc_getAssociatedObject(self, &HBRefreshFooterKey);
 }
 
 @end

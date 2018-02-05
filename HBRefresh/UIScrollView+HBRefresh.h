@@ -22,9 +22,15 @@
 
 @end
 
+@interface HBRefreshFooter : HBRefresh
+
+@end
+
 @interface UIScrollView (HBRefresh)
 
 @property (strong, nonatomic) HBRefreshHeader *hb_header;
+
+@property (strong, nonatomic) HBRefreshFooter *hb_footer;
 
 @end
 
