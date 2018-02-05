@@ -111,7 +111,7 @@
     _scrollView = object;
     
     CGFloat h = _scrollView.contentOffset.y;
-    NSLog(@"%.2f", h);
+//    NSLog(@"%.2f", h);
     if (h >= 0) {
         if (!_refreshing) {
             _canRefresh = YES;
