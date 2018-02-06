@@ -6,21 +6,23 @@
 //  Copyright © 2018 denghb. All rights reserved.
 //
 
-#define HB_IMAGE_REFRESH  @"iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEHElEQVR4Xu2aj1EVMRDGdytQKxA6sAOhArUCpQK1AqECsQKhAqUCoQKhArECtYJ1fkxu5ngml00uOZ7zbmfe8GZeSPJ9+yeb3ajsuOiO45eVgNUCdpyB1QV23ADWILiIC5jZnog8F5EDEeH7MxF5HLG+SxG5FZFrEblSVf5Wi5l9VtWjqQm6EWBmAHwtIm8C4BogkHEmIueqyne3AJ61VXUSY3MCgrY/BODuDTsGQsSJh4gBPHMuSoCZAfxdwrwdGF1DjkXkk6r+jo0eg1+MgKD1LzNM3YV8NIjYcLQZIzbBL0KAmb0UEfwtFtRKgZWMxwLeqyquITHw3QkwMwIc4D3yU0SI8l9FhM1fD2YcAiYnAwKhfJ56JsUSwgnDXv6RbjGgAPy5iJyWHmlmBiHEE06SaulCgJlxnn/L7OpKRI5VFa1XSyDiNGi5eJ7mBARz/ZHxeXyTTTeTAou7t2YPAtA8FhCTP/jvXK2nWAuWRwx55GW2KQEZLQD+oNTXvUCGcWZG1HfHhWYEOEz/laqinW5S4wYtCSADI9OLSXOf31ykBjxztCTgVyLw3ajqcIZ30X4t+GYEhGyPVDcmh72CHovNAd+SAHz7RQQ9d/bUiTDbGuaCb0mAJdB0C3wtwDchYCrrywWYWhNoBb4VAanof6GqXFqaSkvwrQhIJR5UZyDnv5ZsSczMuMxQ0NyUrtF/KVZXAnJMm9n3RKlr31OgzM3/0L/PsYCdJ2CNAT1T4KVcw+MCVHbeRja0M8fgoonQUpof1vFYAFddToKYPEl1aJYGUrtelgAmNjPq+LE6HN2Zu8bEQ0mmQp1VkJeAVDp8qaqHDwU+KCd1VXfdVbwEcOlJFUS6XYlzxIaeJCX6mLis00VAYJr+fKxddauq+7nN9vjdzFIleirUe574VELAVB+QdjVtrMXEzFjvY2JB9xFdQgDdX9rSqaaly+RaMBTaZamTya199uImILjBVCzgpCA9nvWuJ0dQAI/pp9rxRYooIiATdfn5Xs8+B6b0dwf44hJ9DQEwT0Cc6s/RFT4pBTg13sxIx6carkWmP6xVTECwArJDKkVTJEAS5tiiPU6wy5Xfq26nVQQ44sFYmRDAA4mLEosIGR5a9xRei/x+vI9qAgIJHI2YpbddTdbG5+7Nn6ryiIJUG4tiDh5RounhQaWHs2rwxadAbDdh8zl38AApHdOkHT/LAoYdh9Y5mo1Vj0uBecZjObwCLXo9Gpu4CQEjIkpdwgN2PAatc8I0e37TlIDgzxyTpKl8vLEhRwTAAU0wjb4QzU2Q+r05ARtuQQTHKmpdA1M/61lz6EbAmPEQI4jsRPvhPB+TchOySP6NVJo6Q9fnNrMSoVpz28b/W8QCthH4agGBgdUCttk8l9jbagFLsLzNa+y8BfwFdSmfUBzmFmIAAAAASUVORK5CYII="
+#define HB_Log(s, ...)     //NSLog(@"\n%s (%d)\n%@\n\n", __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
 
-#define HB_IMAGE_OK  @"iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAaVBMVEVMaXF3d3f///+CgoJ3d3d3d3d3d3ekpKR3d3d3d3d6enp3d3f///93d3f///99fX3///////+zs7N3d3d3d3d3d3f////9/f3////+/v7////W1tZ3d3f///+RkZHc3Nzr6+vPz8+kpKRZlpGxAAAAHHRSTlMAMqz+RIIZCMfW/qtbm+poTM/86yRWPocimCrSqMGl/wAAATJJREFUeF6N0t12gyAQBGAJEEAi/iVN0gyoff+H7ILFUO1F90Y532GYi63+PUxqDWgt2R94M9jG3HZ4jfekYJViojGAPpcqRuj2fZQGoygUsKoMUxZgW/KIZl+lwZjzNeyxqoVe9QatjqwMRGKD9mCM+sGsvfRezwYyvslSCXnUyDKBATvq1z3H1lBH9cRncAKAgDXil57oikKd2QJip8SchMfwFtFLzeEhVjstNXmpsVogHmL/zkdvS60kBuJX6n9JXmql8SJ4crTZS5UId+Juoeur8+GtymD5iF8XYFf3b60sQp9+LjNHk9w9N23A5y6x6qeafLdM9dT/HD4debmKrQaf3CMfOz+HtMhXWjwhNRBmT702d1Qb24TFu0Ipv/d+GkIgCsPkff8oNdX227hLhm+Lfx2VWvyS+gAAAABJRU5ErkJggg=="
-
-#define HB_IMAGE(base64String) [UIImage imageWithData:[[NSData alloc]initWithBase64EncodedString:base64String options:(NSDataBase64DecodingIgnoreUnknownCharacters)]]
-
-#define HB_height     40
-#define HB_refreshHeight       80
+#define HB_height          40
+#define HB_refreshHeight   80
 #define HB_contentOffset   @"contentOffset"
 
 #define HB_backgroundColor [UIColor colorWithWhite:0.9 alpha:1]
 #define HB_tinColor        [UIColor colorWithWhite:0.7 alpha:1]
+#define HB_IMAGE(base64)   [UIImage imageWithData:[[NSData alloc]initWithBase64EncodedString:base64 options:(NSDataBase64DecodingIgnoreUnknownCharacters)]]
+#define HB_textWidth(text, font) [text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size.width
 
 #import "UIScrollView+HBRefresh.h"
 #import <objc/runtime.h>
+
+NSString *const HB_imageRefresh = @"iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEHElEQVR4Xu2aj1EVMRDGdytQKxA6sAOhArUCpQK1AqECsQKhAqUCoQKhArECtYJ1fkxu5ngml00uOZ7zbmfe8GZeSPJ9+yeb3ajsuOiO45eVgNUCdpyB1QV23ADWILiIC5jZnog8F5EDEeH7MxF5HLG+SxG5FZFrEblSVf5Wi5l9VtWjqQm6EWBmAHwtIm8C4BogkHEmIueqyne3AJ61VXUSY3MCgrY/BODuDTsGQsSJh4gBPHMuSoCZAfxdwrwdGF1DjkXkk6r+jo0eg1+MgKD1LzNM3YV8NIjYcLQZIzbBL0KAmb0UEfwtFtRKgZWMxwLeqyquITHw3QkwMwIc4D3yU0SI8l9FhM1fD2YcAiYnAwKhfJ56JsUSwgnDXv6RbjGgAPy5iJyWHmlmBiHEE06SaulCgJlxnn/L7OpKRI5VFa1XSyDiNGi5eJ7mBARz/ZHxeXyTTTeTAou7t2YPAtA8FhCTP/jvXK2nWAuWRwx55GW2KQEZLQD+oNTXvUCGcWZG1HfHhWYEOEz/laqinW5S4wYtCSADI9OLSXOf31ykBjxztCTgVyLw3ajqcIZ30X4t+GYEhGyPVDcmh72CHovNAd+SAHz7RQQ9d/bUiTDbGuaCb0mAJdB0C3wtwDchYCrrywWYWhNoBb4VAanof6GqXFqaSkvwrQhIJR5UZyDnv5ZsSczMuMxQ0NyUrtF/KVZXAnJMm9n3RKlr31OgzM3/0L/PsYCdJ2CNAT1T4KVcw+MCVHbeRja0M8fgoonQUpof1vFYAFddToKYPEl1aJYGUrtelgAmNjPq+LE6HN2Zu8bEQ0mmQp1VkJeAVDp8qaqHDwU+KCd1VXfdVbwEcOlJFUS6XYlzxIaeJCX6mLis00VAYJr+fKxddauq+7nN9vjdzFIleirUe574VELAVB+QdjVtrMXEzFjvY2JB9xFdQgDdX9rSqaaly+RaMBTaZamTya199uImILjBVCzgpCA9nvWuJ0dQAI/pp9rxRYooIiATdfn5Xs8+B6b0dwf44hJ9DQEwT0Cc6s/RFT4pBTg13sxIx6carkWmP6xVTECwArJDKkVTJEAS5tiiPU6wy5Xfq26nVQQ44sFYmRDAA4mLEosIGR5a9xRei/x+vI9qAgIJHI2YpbddTdbG5+7Nn6ryiIJUG4tiDh5RounhQaWHs2rwxadAbDdh8zl38AApHdOkHT/LAoYdh9Y5mo1Vj0uBecZjObwCLXo9Gpu4CQEjIkpdwgN2PAatc8I0e37TlIDgzxyTpKl8vLEhRwTAAU0wjb4QzU2Q+r05ARtuQQTHKmpdA1M/61lz6EbAmPEQI4jsRPvhPB+TchOySP6NVJo6Q9fnNrMSoVpz28b/W8QCthH4agGBgdUCttk8l9jbagFLsLzNa+y8BfwFdSmfUBzmFmIAAAAASUVORK5CYII=";
+
+NSString *const HB_imageOK = @"iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAaVBMVEVMaXF3d3f///+CgoJ3d3d3d3d3d3ekpKR3d3d3d3d6enp3d3f///93d3f///99fX3///////+zs7N3d3d3d3d3d3f////9/f3////+/v7////W1tZ3d3f///+RkZHc3Nzr6+vPz8+kpKRZlpGxAAAAHHRSTlMAMqz+RIIZCMfW/qtbm+poTM/86yRWPocimCrSqMGl/wAAATJJREFUeF6N0t12gyAQBGAJEEAi/iVN0gyoff+H7ILFUO1F90Y532GYi63+PUxqDWgt2R94M9jG3HZ4jfekYJViojGAPpcqRuj2fZQGoygUsKoMUxZgW/KIZl+lwZjzNeyxqoVe9QatjqwMRGKD9mCM+sGsvfRezwYyvslSCXnUyDKBATvq1z3H1lBH9cRncAKAgDXil57oikKd2QJip8SchMfwFtFLzeEhVjstNXmpsVogHmL/zkdvS60kBuJX6n9JXmql8SJ4crTZS5UId+Juoeur8+GtymD5iF8XYFf3b60sQp9+LjNHk9w9N23A5y6x6qeafLdM9dT/HD4debmKrQaf3CMfOz+HtMhXWjwhNRBmT702d1Qb24TFu0Ipv/d+GkIgCsPkff8oNdX227hLhm+Lfx2VWvyS+gAAAABJRU5ErkJggg==";
 
 @implementation HBRefresh
 
@@ -56,6 +58,8 @@
     UIScrollView *_scrollView;// 当前视图
     NSUInteger _refreshIndex;// 刷新次数
     BOOL _canRefresh;// 能刷新
+    BOOL _inseted;
+    
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
@@ -67,12 +71,12 @@
     _refreshIndex = 0;
     _canRefresh = YES;
     _width = newSuperview.bounds.size.width;
+    _inseted = NO;
     
     self.frame = CGRectMake(0, -HB_height, _width, HB_height);
-    //    self.clipsToBounds = YES;
     self.backgroundColor = HB_backgroundColor;
     // 初始化
-    _innerImageView = [[UIImageView alloc]initWithImage:HB_IMAGE(HB_IMAGE_REFRESH)];
+    _innerImageView = [[UIImageView alloc]initWithImage:HB_IMAGE(HB_imageRefresh)];
     [_innerImageView setContentMode:(UIViewContentModeScaleAspectFit)];
     [self addSubview:_innerImageView];
     
@@ -88,7 +92,7 @@
     NSString *title = @" 刷新成功";
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:title];
     NSTextAttachment *attachment = [[NSTextAttachment alloc]init];
-    attachment.image = HB_IMAGE(HB_IMAGE_OK);
+    attachment.image = HB_IMAGE(HB_imageOK);
     attachment.bounds = CGRectMake(0, 0, 12, 12);
     [attr insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
     [attr addAttribute:NSBaselineOffsetAttributeName value:@(1) range:NSMakeRange(1, title.length)];
@@ -111,7 +115,7 @@
     _scrollView = object;
     
     CGFloat h = _scrollView.contentOffset.y;
-//    NSLog(@"%.2f", h);
+//    HB_Log(@"%.2f", h);
     if (h >= 0) {
         if (!_refreshing) {
             _canRefresh = YES;
@@ -131,9 +135,10 @@
     [self setNeedsDisplay];
     
     // 如果是刷新中回到最低高度
-    if (_refreshing && _height <= HB_height) {
+    if (_refreshing && _height <= HB_height && !_inseted) {
+        _inseted = YES;
         UIEdgeInsets inset = _scrollView.contentInset;
-        inset.top = HB_height;
+        inset.top = inset.top + HB_height;
         [_scrollView setContentInset:inset];
     }
 }
@@ -154,7 +159,7 @@
     CGFloat scale = 1;
     if (canStart) {
         scale = (100 - h) / 100.0;// 简单得到一个比例
-//        NSLog(@"%.2f", scale);
+//        HB_Log(@"%.2f", scale);
     }
     
     // 大圆
@@ -200,7 +205,10 @@
 
 - (void)beginRefreshing
 {
-    NSLog(@"header beginRefreshing (%lu)", ++_refreshIndex);
+    if (_refreshing) {
+        return;
+    }
+    HB_Log(@"header beginRefreshing (%lu)", ++_refreshIndex);
     _refreshing = YES;
     [_activityIndicatorView startAnimating];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -208,14 +216,23 @@
 
 - (void)endRefreshing
 {
-    NSLog(@"header endRefreshing (%lu)", _refreshIndex);
+    if (!_refreshing) {
+        return;
+    }
+    HB_Log(@"header endRefreshing (%lu)", _refreshIndex);
     _refreshing = NO;
     [_tipLabel setHidden:NO];
     [_activityIndicatorView stopAnimating];
     
-    [UIView animateWithDuration:0.5 animations:^{
-        [_scrollView setContentInset:UIEdgeInsetsZero];
-    }];
+    if (_inseted) {
+        UIEdgeInsets inset = _scrollView.contentInset;
+        inset.top = inset.top - HB_height;
+        [UIView animateWithDuration:0.5 animations:^{
+            [_scrollView setContentInset:inset];
+        } completion:^(BOOL finished) {
+            _inseted = NO;
+        }];
+    }
 }
 
 
@@ -225,11 +242,12 @@
 {
     
     UIActivityIndicatorView *_activityIndicatorView;// 菊花
-    UILabel *_label;// 结束提示
+    UILabel *_label;// 提示
     BOOL _refreshing;// 刷新中
     
     UIScrollView *_scrollView;// 当前视图
     NSUInteger _refreshIndex;// 刷新次数
+    BOOL _inseted;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
@@ -237,12 +255,28 @@
     [super willMoveToSuperview:newSuperview];
     [newSuperview addObserver:self forKeyPath:HB_contentOffset options:NSKeyValueObservingOptionNew context:nil];
     CGFloat width = newSuperview.frame.size.width;
+    _inseted = NO;
     
     self.frame = CGRectMake(0, -HB_height, width, HB_height);
-    //    self.clipsToBounds = YES;
     self.backgroundColor = HB_backgroundColor;
+    
     // 初始化
-    _activityIndicatorView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake((width - 30)/2, 5, 30, 30)];
+    UIFont *font = [UIFont systemFontOfSize:13];
+    NSString *text = @"  加载中..";
+    CGFloat textWidth = HB_textWidth(text, font);
+    
+    CGFloat loadingDiam = HB_height - 10;// 菊花直径
+    CGFloat margeWidth = textWidth + loadingDiam;
+    CGFloat x = (width - margeWidth) / 2;
+    
+    _label = [[UILabel alloc]initWithFrame:CGRectMake(x, 0, margeWidth, HB_height)];
+    [_label setText:text];
+    [_label setTextAlignment:(NSTextAlignmentRight)];
+    [_label setFont:font];
+    [_label setTextColor:HB_tinColor];
+    [self addSubview:_label];
+    
+    _activityIndicatorView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(x, 5, loadingDiam, loadingDiam)];
     [_activityIndicatorView setHidden:YES];
     [_activityIndicatorView setColor:HB_tinColor];
     [self addSubview:_activityIndicatorView];
@@ -267,24 +301,28 @@
     
     CGFloat h = _scrollView.contentSize.height - _scrollView.frame.size.height - _scrollView.contentOffset.y;
     
-//    NSLog(@"%.f", h);
+//    HB_Log(@"%.f", h);
     if (h >= 0) {
         return;
     }
     self.frame = CGRectMake(0, _scrollView.contentSize.height, _scrollView.frame.size.width, MAX(-h, HB_height));
-//    self.backgroundColor = [UIColor redColor];
     if (!_refreshing) {
         [self beginRefreshing];
-        
-        UIEdgeInsets inset = _scrollView.contentInset;
-        inset.bottom = HB_height;
-        [_scrollView setContentInset:inset];
+        if (!_inseted) {
+            _inseted = YES;
+            UIEdgeInsets inset = _scrollView.contentInset;
+            inset.bottom = inset.bottom + HB_height;
+            [_scrollView setContentInset:inset];
+        }
     }
 }
 
 - (void)beginRefreshing
 {
-    NSLog(@"footer beginRefreshing (%lu)", ++_refreshIndex);
+    if (_refreshing) {
+        return;
+    }
+    HB_Log(@"footer beginRefreshing (%lu)", ++_refreshIndex);
     _refreshing = YES;
     [_activityIndicatorView startAnimating];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -293,10 +331,25 @@
 
 - (void)endRefreshing
 {
+    if (!_refreshing) {
+        return;
+    }
     _refreshing = NO;
-    NSLog(@"footer endRefreshing (%lu)", _refreshIndex);
+    HB_Log(@"footer endRefreshing (%lu)", _refreshIndex);
     [_activityIndicatorView stopAnimating];
     [self setAlpha:0];
+}
+
+- (void)setHidden:(BOOL)hidden
+{
+    [super setHidden:hidden];
+    
+    if (hidden && _inseted) {
+        _inseted = NO;
+        UIEdgeInsets inset = _scrollView.contentInset;
+        inset.bottom = inset.bottom - HB_height;
+        [_scrollView setContentInset:inset];
+    }
 }
 
 @end
